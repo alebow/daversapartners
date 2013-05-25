@@ -27,7 +27,12 @@
         </ul>
       </div><!--/.nav-collapse -->
       	<ul class="nav pull-right">
-            <li><%= link_to "Login", "#" %></li>
+            <% if signed_in? %>
+              <li><%= link_to "My Profile", edit_associate_path(current_associate) %></li>
+              <li><%= link_to "Sign Out", signout_path, method: "delete" %></li>
+            <% else %>
+              <li><%= link_to "Login", signin_path %></li>
+            <% end %>
         </ul>
     </div>
   </div>

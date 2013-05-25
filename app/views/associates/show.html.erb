@@ -1,0 +1,15 @@
+<% provide(:title, @associate.name) %>
+<table class="table table-striped">
+	<thead>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Team</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<td><%= @associate.name %></td>
+		<td><%= @associate.email %></td>
+		<td><%= @associate.group.name %></td>
+		<td><%= link_to 'Edit', edit_associate_path(@associate) %></td>
+	</tbody>
+</table>

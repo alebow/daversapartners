@@ -1,0 +1,11 @@
+<%= simple_form_for(@associate, :html => { class: 'form-horizontal' }) do |f| %>
+  <%= f.input :name %> 
+  <%= f.input :email %>
+  <%= f.association :group, as: :radio_buttons %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation, label: 'Password Confirmation' %>
+  <%= f.button :submit, label: 'Create', class: "btn btn-primary" %>
+
+  <%= f.error_notification %>
+
+<% end %>

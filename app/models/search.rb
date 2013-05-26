@@ -3,4 +3,6 @@ class Search < ActiveRecord::Base
   belongs_to :client
   belongs_to :associate
 
+  validates :client_id, presence: true
+
 end

@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
 	def show
 		@group = Group.find(params[:id])
 		@associates = @group.associates
+		@searches = @group.searches
 	end
 
 end

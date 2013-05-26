@@ -3,14 +3,9 @@
 	<thead>
 		<th>Name</th>
 		<th>Website</th>
-		<th></th>
 	</thead>
 	<tbody>
 		<td><%= @client.name %></td>
 		<td><%= @client.website %></td>
-		<% if current_associate.admin? %>
-			<td><%= link_to 'Edit', edit_client_path(@associate) %></td>
-			<td><%= link_to 'Delete', @client, method: :delete, data: { confirm: "You sure?" } %></td>
-		<% end %>
 	</tbody>
 </table>

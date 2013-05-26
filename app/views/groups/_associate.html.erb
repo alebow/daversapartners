@@ -1,9 +1,0 @@
-<tr>
-	<td><%= link_to associate.name, associate %></td>
-	<td><%= associate.email %></td>
-	<td><%= associate.group.name %></td>
-	<% if current_associate.admin? %>
-		<td><%= link_to 'Edit', edit_associate_path(associate) %></td>
-    <td><%= link_to 'Delete', associate, method: :delete, data: { confirm: "You sure?" } %></td>
-  <% end %>
-</tr>

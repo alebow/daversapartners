@@ -1,2 +1,12 @@
-<h1>Searches#show</h1>
-<p>Find me in app/views/searches/show.html.erb</p>
+<% provide(:title, @search.position) %>
+<table class="table table-striped">
+	<thead>
+		<th>Client</th>
+		<th>Position</th>
+	</thead>
+	<tbody>
+		<td><%= @search.client.name %></td>
+		<td><%= @search.position %></td>
+		<td><%= link_to 'Edit', edit_search_path %></td>
+	</tbody>
+</table>

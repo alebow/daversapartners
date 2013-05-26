@@ -4,6 +4,7 @@
   <%= f.association :group, as: :radio_buttons %>
   <%= f.input :password %>
   <%= f.input :password_confirmation, label: 'Password Confirmation' %>
+  <%= f.input :bio, as: :text, input_html: { rows: "3" } %>
   <%= f.button :submit, label: 'Update', class: "btn btn-primary" %>
 
   <%= f.error_notification %>

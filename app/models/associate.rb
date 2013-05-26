@@ -1,5 +1,5 @@
 class Associate < ActiveRecord::Base
-  attr_accessible :email, :group_id, :name, :password, :password_confirmation, :searches
+  attr_accessible :email, :group_id, :name, :password, :password_confirmation, :searches, :bio
   has_secure_password
   belongs_to :group
   has_many :searches

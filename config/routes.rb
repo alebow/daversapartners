@@ -1,7 +1,12 @@
 Daversapartners::Application.routes.draw do
+  get "searches/show"
+
+  get "searches/index"
+
 	resources :associates
 	resources :clients
 	resources :searches
+  resources :groups
 	resources :sessions, only: [:new, :create, :destroy]
   
   root :to => "pages#home"

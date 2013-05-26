@@ -4,8 +4,9 @@ gem 'rails', '3.2.12'
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
-gem 'paperclip', '~> 3.0'
+gem 'paperclip'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'aws-sdk'
 
 group :production do
 	gem 'pg'

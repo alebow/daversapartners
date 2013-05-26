@@ -1,0 +1,11 @@
+<% provide(:title, 'Add Client') %>
+<h1>Add a New Client</h1>
+
+<%= simple_form_for(@client, :html => { class: 'form-horizontal' }) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :website %>  
+  <%= f.button :submit, label: 'Create', class: "btn btn-primary" %>
+
+  <%= f.error_notification %>
+
+<% end %>

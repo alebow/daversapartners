@@ -1,7 +1,8 @@
 class Associate < ActiveRecord::Base
-  attr_accessible :email, :group_id, :name, :password, :password_confirmation
+  attr_accessible :email, :group_id, :name, :password, :password_confirmation, :searches
   has_secure_password
   belongs_to :group
+  has_many :searches
 
   before_save { |associate| associate.email = email.downcase }
   before_save :create_remember_token

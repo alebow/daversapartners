@@ -10,6 +10,11 @@
 		<td><%= @associate.name %></td>
 		<td><%= @associate.email %></td>
 		<td><%= @associate.group.name %></td>
+		<% if current_associate?(@associate) || current_associate.admin? %>
 		<td><%= link_to 'Edit', edit_associate_path(@associate) %></td>
+		<td><%= link_to 'Delete', @associate, method: :delete, data: { confirm: "You sure?" } %></td>
+		<% end %>
 	</tbody>
 </table>
+
+<%= render @searches %>

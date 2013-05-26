@@ -1,0 +1,12 @@
+<% provide(:title, @group.name) %>
+<h1><%= @group.nickname %></h1>
+
+<table class="table table-striped">
+	<thead>
+		<th>Name</th>
+	</thead>
+
+	<tbody>
+		<%= render @associates %>
+	</tbody>
+</table>

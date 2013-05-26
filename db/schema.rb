@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130525224422) do
+ActiveRecord::Schema.define(:version => 20130526040640) do
 
   create_table "associates", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.integer  "group_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin",           :default => false
   end
 
   add_index "associates", ["email"], :name => "index_associates_on_email", :unique => true
@@ -38,13 +39,17 @@ ActiveRecord::Schema.define(:version => 20130525224422) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "nickname"
   end
 
   create_table "searches", :force => true do |t|
     t.string   "position"
     t.integer  "client_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "associate_id"
   end
+
+  add_index "searches", ["associate_id"], :name => "index_searches_on_associate_id"
 
 end

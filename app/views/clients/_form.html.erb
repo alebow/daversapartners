@@ -1,0 +1,8 @@
+<%= simple_form_for(@client, :html => { class: 'form-horizontal' }) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :website %>  
+  <%= f.button :submit, label: 'Update', class: "btn btn-primary" %>
+
+  <%= f.error_notification %>
+
+<% end %>

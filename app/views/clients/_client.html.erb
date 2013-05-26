@@ -1,0 +1,6 @@
+<tr>
+	<td><%= link_to client.name, client %></td>
+	<td><%= client.website %></td>
+	<td><%= link_to 'Edit', edit_client_path(client) %></td>
+  <td><%= link_to 'Delete', client, method: :delete, data: { confirm: "You sure?" } %></td>
+</tr>

@@ -1,4 +1,7 @@
 class AssociatesController < ApplicationController
+	before_filter :signed_in_associate, only: [:index, :show, :edit, :update, :destroy]
+	before_filter :correct_associate, 	only: [:edit, :update]
+  before_filter :admin_associate,     only: :destroy
 
 	def new
 		@associate = Associate.new
@@ -17,6 +20,7 @@ class AssociatesController < ApplicationController
 
 	def show
 		@associate = Associate.find(params[:id])
+    @searches = @associate.searches
 	end
 
 	def index
@@ -24,17 +28,39 @@ class AssociatesController < ApplicationController
 	end
 
 	def edit
-		@associate = Associate.find(params[:id])
 	end
 
 	def update
-    @associate = Associate.find(params[:id])
     if @associate.update_attributes(params[:associate])
       flash[:success] = "Update Successful"
+      sign_in @associate
       redirect_to @associate
     else
       render 'edit'
     end
   end
+
+  def destroy
+    Associate.find(params[:id]).destroy
+    flash[:success] = "Associate destroyed."
+    redirect_to associates_url
+  end
+
+  private
+
+  	def signed_in_associate
+	  	unless signed_in?
+	  		redirect_to signin_url, notice: "Please sign in."
+	  	end
+  	end
+
+  	def correct_associate
+  		@associate = Associate.find(params[:id])
+  		redirect_to(root_path) unless current_associate?(@associate)
+  	end
+
+    def admin_associate
+      redirect_to(root_path) unless current_associate.admin?
+    end
 
 end
